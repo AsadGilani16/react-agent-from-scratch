@@ -1,5 +1,6 @@
 import re
 import wikipedia
+from rag_tool import rag_search
 
 def calculate( expression: str )->str:
     if not re.fullmatch(r"[0-9+\-*/().\s]+", expression ):
@@ -20,5 +21,6 @@ def wiki_search(query: str)-> str:
 
 TOOLS = {
     "calculate": calculate,
-    "Wikipedia": wiki_search
+    "wikipedia": wiki_search,
+    "rag_search": rag_search
 }
