@@ -1,7 +1,7 @@
 import re
 from agent import Agent
 from tools import TOOLS
-from prompts import SYSTEM_PROMPT
+from prompts import SYSTEM_PROMPT, SYSTEM_PROMPT_RAG
 from groq import Groq
 import os
 from dotenv import load_dotenv
@@ -11,7 +11,7 @@ action_pattern = re.compile(r"Action:\s*(\w+):\s*(.+)")
 answer_pattern = re.compile(r"Answer:\s*(.+)", re.DOTALL)
 
 def Agentloop( query, client, max_steps = 10):
-    my_agent = Agent(client, system = SYSTEM_PROMPT)
+    my_agent = Agent(client, system = SYSTEM_PROMPT_RAG)
     next_query = query
 
     for i in range(max_steps):
@@ -43,7 +43,7 @@ def Agentloop( query, client, max_steps = 10):
 if __name__ == "__main__":
     load_dotenv()
     client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-    answer = Agentloop("In what year did the Wright brothers make their first flight, and how many years ago was that from 2026?", client)
+    answer = Agentloop("According to the uploaded document, what is the security situation on Pakistan's eastern border?", client)
     print("FINAL ANSWER")
     print(answer)
 
