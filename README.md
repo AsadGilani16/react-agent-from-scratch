@@ -28,7 +28,13 @@ Paper: [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxi
 
 ## Example trace
 Thought: To answer this question, I need to search the uploaded document for information related to Pakistan's eastern border security situation.
+
+
 Action: rag_search: What is the security situation on Pakistan's eastern border?
 PAUSE
+
+
 Observation: According to the context, on its eastern front, Pakistan is confronted with a larger and hostile neighbour, India, with a history of major wars and a legacy of unresolved issues.
+
+
 Answer: The security situation on Pakistan's eastern border is tense, shaped by a long history of conflict with India and unresolved disputes such as Kashmir.
